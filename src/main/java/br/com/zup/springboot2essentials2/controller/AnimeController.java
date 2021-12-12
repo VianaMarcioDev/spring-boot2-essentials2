@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("anime")
+@RequestMapping("animes")
 @Log4j2
 @AllArgsConstructor
 public class AnimeController {
@@ -20,7 +20,7 @@ public class AnimeController {
 
     private DateUtil dateUtil;
 
-    @GetMapping(path = "list")
+    @GetMapping
     public List<Anime> list(){
         log.info(dateUtil.formatlocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return List.of(new Anime("Boku no Hero"), new Anime("Berserk"));
