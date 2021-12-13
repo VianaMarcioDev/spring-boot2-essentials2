@@ -3,6 +3,7 @@ package br.com.zup.springboot2essentials2.service;
 import br.com.zup.springboot2essentials2.domain.Anime;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
@@ -37,5 +38,10 @@ public class AnimeService {
 
     public void delete(long id) {
         animes.remove(findById(id));
+    }
+
+    public void replace(@RequestBody Anime anime) {
+        delete(anime.getId());
+        animes.add(anime);
     }
 }
